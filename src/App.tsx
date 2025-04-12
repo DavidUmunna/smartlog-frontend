@@ -16,9 +16,9 @@ function App() {
   return (
     <>
       
-          <Routes location={location} key={location.pathname}>
-              <Route path='/' element={auth? <Login/>:<Login/> }></Route>
-          </Routes>
+      <Routes location={location} key={location.pathname}>
+        <Route path='/' element={auth? <Login/>:<Login/> }></Route>
+      </Routes>
       
       
       

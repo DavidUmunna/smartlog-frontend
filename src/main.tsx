@@ -7,14 +7,14 @@ import {store } from './app/store.ts'
 import { Provider } from 'react-redux'
 
 createRoot(document.getElementById('root')!).render(
-    <BrowserRouter>
-        <Provider store={store}> 
+  <BrowserRouter>
+    <Provider store={store}> 
     
-            <App />
+      <App />
     
-        </Provider>
+    </Provider>
     
-    </BrowserRouter>   
+  </BrowserRouter>   
       
   
 )

@@ -3,10 +3,10 @@ import counterReducer from "../components/counter/counterslice"
 
 
 export const store=configureStore({
-    reducer:{
-        counter:counterReducer
-    },
-    
+  reducer:{
+    counter:counterReducer
+  },
+
 })
 
 export type RootState = ReturnType<typeof store.getState>;

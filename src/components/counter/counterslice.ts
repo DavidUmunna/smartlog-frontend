@@ -1,20 +1,20 @@
 import {createSlice,PayloadAction} from '@reduxjs/toolkit'
 
 interface CounterState{
-    value:number
+  value:number
 }
 
 //initial state
 const initialState: CounterState={
-    value:0,
+  value:0,
 }
 
 const counterSlice=createSlice({
-    name:'counter',
-    initialState,
-    reducers:{
+  name:'counter',
+  initialState,
+  reducers:{
     //implement reducer actions
-    }
+  }
 
 })
 // eslint-disable-next-line no-empty-pattern

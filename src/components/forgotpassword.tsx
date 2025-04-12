@@ -3,11 +3,11 @@ import React from "react"
 
 
 export default function ForgotPassword(){
-    return (
-        <>
-        <div>
+  return (
+    <>
+      <div>
             
-        </div>
-        </>
-    )
+      </div>
+    </>
+  )
 }
