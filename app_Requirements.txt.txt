@@ -9,6 +9,21 @@ Logging out is disabled until the end of the workday.
 
 breaks and movement allowances are made 
 
+login page 
+dashboard (user logged in,intermitent, )
+user history
+modal for location/attendance verification
+
+
+admin page 
+view all logs
+create users
+analysis
+list of users(click users to see user timeline for each day)
+set time intervals for hourly location verification
+
+
+
 Geolocation-Based Logging
 The app should detect when a user arrives at a specific location.
 
