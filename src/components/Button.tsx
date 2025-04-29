@@ -26,7 +26,7 @@ export function Button({ children, variant="default", size="default", ...props }
   const buttonClasses = classNames(baseStyles, variantStyles[variant], sizeStyles[size], props.className, 'cursor-pointer')
 
   return (
-    <button className={buttonClasses} {...props}>
+    <button {...props} className={buttonClasses}>
       {children}
     </button>
   )

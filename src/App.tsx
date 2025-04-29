@@ -3,7 +3,7 @@ import Layout from "./components/Layout"
 import LandingPage from "./pages/LandingPage"
 import RegisterCompanyPage from "./pages/RegisterCompanyPage"
 import SignInPage from "./pages/SigninPage"
-import RegisterPage from "./components/register"
+import { RegisterPage } from "./pages/RegisterPage"
 
 function App() {
   return (

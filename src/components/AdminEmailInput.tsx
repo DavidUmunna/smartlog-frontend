@@ -2,10 +2,10 @@
 
 import { useState } from "react"
 import { Plus, X } from "lucide-react"
-import { Input } from "./Input"
+import Input from "./Input"
 import { Button } from "./Button"
 import { Badge } from "./Badge"
-import { Label } from "./Label"
+import Label from "./Label"
 import { Select, SelectItem } from "./Select"
 
 export function AdminEmailInput({ onEmailsChange, onSelectedEmailChange }) {

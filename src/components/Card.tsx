@@ -1,40 +1,44 @@
 import classNames from "classnames"
 
-function Card({ className, children, ...props }) {
+interface Props extends React.HTMLAttributes<HTMLDivElement>{
+  children: React.ReactNode
+}
+
+function Card({ children, ...props }: Props) {
   return (
-    <div className={classNames("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props}>
+    <div {...props} className={classNames("rounded-lg border bg-card text-card-foreground shadow-sm", props.className)}>
       {children}
     </div>
   )
 }
 
-function CardHeader({ className, children, ...props }) {
+function CardHeader({ children, ...props }: Props) {
   return (
-    <div className={classNames("flex flex-col space-y-1.5 p-6", className)} {...props}>
+    <div {...props} className={classNames("flex flex-col space-y-1.5 p-6", props.className)}>
       {children}
     </div>
   )
 }
 
-function CardTitle({ className, children, ...props }) {
+function CardTitle({ children, ...props }: Props) {
   return (
-    <h3 className={classNames("text-2xl font-semibold leading-none tracking-tight", className)} {...props}>
+    <h3 {...props} className={classNames("text-2xl font-bold leading-none tracking-tight", props.className)}>
       {children}
     </h3>
   )
 }
 
-function CardDescription({ className, children, ...props }) {
+function CardDescription({ children, ...props }: Props) {
   return (
-    <p className={classNames("text-sm text-muted-foreground", className)} {...props}>
+    <p {...props} className={classNames("text-sm text-muted-foreground font-medium", props.className)}>
       {children}
     </p>
   )
 }
 
-function CardContent({ className, children, ...props }) {
+function CardContent({ children, ...props }: Props) {
   return (
-    <div className={classNames("p-6 pt-0", className)} {...props}>
+    <div {...props} className={classNames("p-6 pt-0", props.className)}>
       {children}
     </div>
   )
