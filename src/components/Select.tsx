@@ -4,7 +4,19 @@ import React, { useState, useRef, useEffect } from "react"
 import classNames from "classnames"
 import { ChevronDown } from "lucide-react"
 
-function Select({ children, value, onChange, placeholder = "Select an option", className, ...props }) {
+interface SelectProps extends React.HTMLAttributes<HTMLDivElement>{
+  children: React.ReactNode
+  placeholder?: string
+  value: string
+}
+
+interface SelectItemProps extends React.HTMLAttributes<HTMLDivElement>{
+  children: React.ReactNode
+  isSelected: boolean
+  value: string
+} 
+
+function Select({ children, value, onChange, placeholder = "Select an option", className, ...props }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false)
   const selectRef = useRef(null)
 
@@ -62,17 +74,18 @@ function Select({ children, value, onChange, placeholder = "Select an option", c
   )
 }
 
-function SelectItem({ children, value, onClick, isSelected, ...props }) {
+function SelectItem({ children, value, /*onClick,*/ isSelected, ...props }: SelectItemProps) {
   return (
     <div
+      {...props}
       role="option"
       aria-selected={isSelected}
+      value={value}
+      
       className={classNames(
         "relative flex cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:bg-accent hover:text-accent-foreground",
         isSelected ? "bg-accent text-accent-foreground" : "",
       )}
-      onClick={onClick}
-      {...props}
     >
       {children}
     </div>
