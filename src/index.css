@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 @theme{
+  --color-darkblue:#3E5E8D;
   --color-primblue:#3085FE;
+  --color-secblue:#EAF3FF;
   --color-lightblue:#F5F9FF;
+  --color-customgrey:#6a7282;
 }
 
 /*@layer base {
@@ -79,5 +82,9 @@
 
 html, body, #root{
   width:100vw; height:100vh;
-  
+  overflow-x:hidden;
 } 
+
+html, body{
+  overflow-y:hidden;
+}
