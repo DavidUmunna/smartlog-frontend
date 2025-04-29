@@ -6,7 +6,7 @@ import { StepItem } from "../../components/StepItem"
 
 export default function LandingPage() {
   return (
-    <div>
+    <div className="border border-black">
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 flex flex-col items-center text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">

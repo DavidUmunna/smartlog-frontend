@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { MapPin, Menu, X } from "lucide-react"
@@ -11,8 +9,8 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl">
-          <MapPin className="h-5 w-5 text-emerald-500" />
-          <span>AttendanceTrack</span>
+          <MapPin className="h-5 w-5 text-primblue" />
+          <span className="text-primblue">AttendanceTrack</span>
         </Link>
 
         <nav className="hidden md:flex gap-6 items-center">
