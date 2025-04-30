@@ -7,7 +7,7 @@ import { Button } from "../../components/Button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../../components/Card"
 import { Input } from "../../components/Input"
 import { Label } from "../../components/Label"
-import Select from "../../components/Select"
+import { Select } from "../../components/Select"
 import { AdminEmailInput } from "../../components/AdminEmailInput"
 
 function RegisterCompanyPage() {
