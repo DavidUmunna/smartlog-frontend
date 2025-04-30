@@ -22,14 +22,14 @@ export const signin=async(email:string,password:string):Promise<SigninResponse>=
 }
 
 export const createuser=async(payload:object):Promise<SigninResponse>=>{
-    try{
+  try{
 
-        const response=await axios.post(`${API_GATEWAY}/admin/createuser`,{payload})
+    const response=await axios.post(`${API_GATEWAY}/admin/createuser`,{payload})
 
-        return response.data
-    }catch(error){
-        console.error(error)
-    }
+    return response.data
+  }catch(error){
+    console.error(error)
+  }
 
 }
 

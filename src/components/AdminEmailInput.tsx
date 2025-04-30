@@ -5,56 +5,58 @@ import { Plus, X } from "lucide-react"
 import {Input} from "./Input"
 import { Button } from "./Button"
 import { Badge } from "./Badge"
-import {Label} from "./Label"
-import { Select, SelectItem } from "./Select"
+import { Label } from "./Label"
+import Select from "./Select"
 
-export function AdminEmailInput({ onEmailsChange, onSelectedEmailChange }) {
-  const [adminEmails, setAdminEmails] = useState([])
+export function AdminEmailInput(/*{ onEmailsChange, onSelectedEmailChange }*/) {
+  const [adminEmails, setAdminEmails] = useState<string[]>([])
   const [newEmail, setNewEmail] = useState("")
-  const [selectedAdminEmail, setSelectedAdminEmail] = useState(null)
+  const [selectedAdminEmail, setSelectedAdminEmail] = useState<string|null>(null)
 
   const addAdminEmail = () => {
     if (newEmail && !adminEmails.includes(newEmail) && newEmail.includes("@")) {
       const updatedEmails = [...adminEmails, newEmail]
       setAdminEmails(updatedEmails)
       setNewEmail("")
-      if (onEmailsChange) onEmailsChange(updatedEmails)
+      //if (onEmailsChange) onEmailsChange(updatedEmails)
     }
   }
 
-  const removeAdminEmail = (email) => {
+  const removeAdminEmail = (email: string) => {
     const updatedEmails = adminEmails.filter((e) => e !== email)
     setAdminEmails(updatedEmails)
-    if (onEmailsChange) onEmailsChange(updatedEmails)
+    //if (onEmailsChange) onEmailsChange(updatedEmails)
 
     if (selectedAdminEmail === email) {
       setSelectedAdminEmail(null)
-      if (onSelectedEmailChange) onSelectedEmailChange(null)
+      //if (onSelectedEmailChange) onSelectedEmailChange(null)
     }
   }
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault()
       addAdminEmail()
     }
   }
 
-  const handleSelectEmail = (email) => {
+  const handleSelectEmail = (email: string) => {
     setSelectedAdminEmail(email)
-    if (onSelectedEmailChange) onSelectedEmailChange(email)
+    //if (onSelectedEmailChange) onSelectedEmailChange(email)
   }
 
   return (
     <div className="space-y-2">
-      <Label>Admin Emails</Label>
+      <Label className="text-black">Admin Emails</Label>
       <div className="flex gap-2">
         <Input
           value={newEmail}
           onChange={(e) => setNewEmail(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Add admin email address"
+          className="border border-slate-300 mt-1 text-black"
         />
+
         <Button onClick={addAdminEmail} variant="outline">
           <Plus className="h-4 w-4" />
         </Button>
@@ -67,9 +69,9 @@ export function AdminEmailInput({ onEmailsChange, onSelectedEmailChange }) {
             <button
               type="button"
               onClick={() => removeAdminEmail(email)}
-              className="ml-1 rounded-full hover:bg-gray-200 p-0.5"
+              className="ml-1 rounded-full p-0.5 bg-primblue hover:bg-darkblue text-white"
             >
-              <X className="h-3 w-3" />
+              <X className="h-5 w-5" />
               <span className="sr-only">Remove</span>
             </button>
           </Badge>
@@ -78,18 +80,8 @@ export function AdminEmailInput({ onEmailsChange, onSelectedEmailChange }) {
 
       {adminEmails.length > 0 && (
         <div className="mt-4 space-y-2">
-          <Label htmlFor="login-email">Select Admin Email for Login</Label>
-          <Select
-            value={selectedAdminEmail || ""}
-            onChange={handleSelectEmail}
-            placeholder="Select admin email to proceed"
-          >
-            {adminEmails.map((email) => (
-              <SelectItem key={email} value={email}>
-                {email}
-              </SelectItem>
-            ))}
-          </Select>
+          <Label htmlFor="login-email text-black">Select Admin Email for Login</Label>
+          <Select id="adminemail" items={adminEmails} onChange={(e)=>{ handleSelectEmail(e.target.value); }} placeholder="Select admin email to proceed"/>
         </div>
       )}
     </div>

@@ -49,7 +49,7 @@ function SignInPage() {
           <div className="mt-4 text-center text-sm text-black">
             Don't have an account?{" "}
 
-            <Link to="/register" className="font-medium underline text-primblue hover:text-darkblu">
+            <Link to="/register" className="font-medium underline text-primblue hover:text-darkblue">
               Register
             </Link>
           </div>

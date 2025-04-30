@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage"
 import RegisterCompanyPage from "./pages/RegisterCompanyPage"
 import SignInPage from "./pages/SigninPage"
 import { RegisterPage } from "./pages/RegisterPage"
+import Selecti from "./components/Select"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="register-company" element={<RegisterCompanyPage />} />
         <Route path="signin" element={<SignInPage />} />
         <Route path="register" element={<RegisterPage />} />
+        <Route path="test" element={<Selecti/>} />
       </Route>
     </Routes>
   )

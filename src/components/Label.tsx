@@ -4,7 +4,7 @@ interface Props extends React.LabelHTMLAttributes<HTMLLabelElement>{
   children: React.ReactNode
 }
 
-export  function Label({ children, ...props }: Props) {
+export function Label({ children, ...props }: Props) {
   return (
     <label
       {...props}
