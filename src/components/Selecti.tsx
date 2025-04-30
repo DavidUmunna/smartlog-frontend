@@ -1,35 +1,25 @@
 import { useRef } from "react"
 
-export default function Selecti(){
-  const inputRef = useRef<HTMLInputElement|null>(null)
+interface Props extends React.SelectHTMLAttributes<HTMLSelectElement>{
+  id: string
+  items: string[]
+}
 
-  const data = [
-    "Tech",
-    "Medical",
-    "Sports"
-  ]
-
-  const openList = () => {
-		inputRef.current!.focus();
-		inputRef.current!.select()
-		console.log('yes')
-  }
+export default function Selecti(props: Props){
+  const { id, items , ...restProps} = props;
 
   return(
-	  <div className="w-full h-[500px] flex flex-row items-center justify-center">
-		  <button className="text-black border border-black" onClick={openList}>Placeholder</button>
+    <select {...restProps} className="flex text-sm px-3 py-2 w-full rounded-md border border-slate-300 mt-1 text-black">
+      <option>Select an industry</option>
 
-      <input ref={inputRef} className="w-0 h-0 focus:outline-none" list="categories"/>
+      {
+        items.map((item, index)=>{
+          return(
+            <option key={`${id}${index}`} value={item.toLowerCase()}>{item}</option>
+          )
+        })
+      }
 
-      <datalist id="categories" className="border border-black">
-        {
-          data.map((category, index)=>{
-            return(
-              <option key={index} value={category} className="text-black"/>
-            )
-          })
-        }
-      </datalist> 
-	  </div>
+    </select>
   )
 }

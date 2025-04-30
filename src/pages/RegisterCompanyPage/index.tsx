@@ -9,6 +9,7 @@ import Input from "../../components/Input"
 import Label from "../../components/Label"
 import { Select, SelectItem } from "../../components/Select"
 import { AdminEmailInput } from "../../components/AdminEmailInput"
+import Selecti from "../../components/Selecti"
 
 function RegisterCompanyPage() {
   const [industry, setIndustry] = useState("")
@@ -27,45 +28,40 @@ function RegisterCompanyPage() {
 
   return (
     <div className="container mx-auto max-w-3xl py-10 px-4">
-      <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium mb-6 hover:underline">
+      <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium mb-6 hover:underline text-primblue hover:text-darkblue">
         <ArrowLeft className="h-4 w-4" />
         Back to Home
       </Link>
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl">Register Your Company</CardTitle>
-          <CardDescription>Create a new account for your company to start tracking employee attendance</CardDescription>
+          <CardTitle className="text-2xl text-black">Register Your Company</CardTitle>
+          <CardDescription className="text-customgrey">Create a new account for your company to start tracking employee attendance</CardDescription>
         </CardHeader>
+
         <CardContent>
           <form className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="company-name">Company Name</Label>
-              <Input id="company-name" placeholder="Enter your company name" required />
+              <Label htmlFor="company-name" className="text-black">Company Name</Label>
+              <Input id="company-name" placeholder="Enter your company name" required  className="border border-slate-300 mt-1 text-black"/>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="location">Company Location</Label>
-              <Input id="location" placeholder="Enter your company address" required />
+              <Label htmlFor="location" className="text-black">Company Location</Label>
+              <Input id="location" placeholder="Enter your company address" required  className="border border-slate-300 mt-1 text-black"/>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="industry">Industry</Label>
-              <Select value={industry} onChange={setIndustry} placeholder="Select your industry">
-                {industries.map((ind) => (
-                  <SelectItem key={ind} value={ind.toLowerCase()}>
-                    {ind}
-                  </SelectItem>
-                ))}
-              </Select>
+              <Label htmlFor="industry" className="text-black">Industry</Label>
+              <Selecti id="industry" items={industries}/>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="employees">Number of Employees</Label>
-              <Input id="employees" type="number" min="1" placeholder="Enter number of employees" required />
+              <Label htmlFor="employees" className="text-black">Number of Employees</Label>
+              <Input id="employees" type="number" min="1" placeholder="Enter number of employees" required  className="border border-slate-300 mt-1 text-black"/>
             </div>
 
-            <AdminEmailInput />
+            {/*<AdminEmailInput />*/}
 
             <div className="pt-4">
               <Button type="submit" className="w-full">
