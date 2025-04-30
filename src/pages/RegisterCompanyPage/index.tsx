@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+//import { useState } from "react"
 import { Link } from "react-router-dom"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "../../components/Button"
@@ -11,7 +11,7 @@ import Select from "../../components/Select"
 import { AdminEmailInput } from "../../components/AdminEmailInput"
 
 function RegisterCompanyPage() {
-  const [industry, setIndustry] = useState("")
+  //const [industry, setIndustry] = useState("")
   const industries = [
     "Technology",
     "Healthcare",
@@ -52,7 +52,7 @@ function RegisterCompanyPage() {
 
             <div className="space-y-2">
               <Label htmlFor="industry" className="text-black">Industry</Label>
-              <Select id="industry" items={industries}/>
+              <Select id="industry" items={industries} placeholder="Select an industry"/>
             </div>
 
             <div className="space-y-2">

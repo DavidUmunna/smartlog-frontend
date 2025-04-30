@@ -1,14 +1,15 @@
 interface Props extends React.SelectHTMLAttributes<HTMLSelectElement>{
   id: string
+  placeholder: string
   items: string[]
 }
 
 export default function Select(props: Props){
-  const { id, items , ...restProps} = props;
+  const { id, items, placeholder , ...restProps} = props;
 
   return(
     <select {...restProps} className="flex text-sm px-3 py-2 w-full rounded-md border border-slate-300 mt-1 text-black">
-      <option>Select an industry</option>
+      <option>{placeholder}</option>
 
       {
         items.map((item, index)=>{
