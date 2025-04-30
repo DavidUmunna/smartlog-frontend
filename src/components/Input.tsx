@@ -1,6 +1,6 @@
 import classNames from "classnames"
 
-export default function Input({ ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
+export  function Input({ ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       {...props}
