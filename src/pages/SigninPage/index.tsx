@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "../../components/Button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../../components/Card"
-import Input from "../../components/Input"
-import Label from "../../components/Label"
+import {Input} from "../../components/Input"
+import {Label} from "../../components/Label"
 
 function SignInPage() {
   return (
