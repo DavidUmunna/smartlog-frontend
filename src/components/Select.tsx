@@ -4,7 +4,7 @@ interface Props extends React.SelectHTMLAttributes<HTMLSelectElement>{
   items: string[]
 }
 
-export default function Select(props: Props){
+export function Select(props: Props){
   const { id, items, placeholder , ...restProps} = props;
 
   return(

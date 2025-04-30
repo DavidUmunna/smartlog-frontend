@@ -6,7 +6,7 @@ import {Input} from "./Input"
 import { Button } from "./Button"
 import { Badge } from "./Badge"
 import { Label } from "./Label"
-import Select from "./Select"
+import { Select } from "./Select"
 
 export function AdminEmailInput(/*{ onEmailsChange, onSelectedEmailChange }*/) {
   const [adminEmails, setAdminEmails] = useState<string[]>([])
