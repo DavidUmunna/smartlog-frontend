@@ -4,7 +4,7 @@ import LandingPage from "./pages/LandingPage"
 import RegisterCompanyPage from "./pages/RegisterCompanyPage"
 import SignInPage from "./pages/SigninPage"
 import { RegisterPage } from "./pages/RegisterPage"
-import Selecti from "./components/Selecti"
+import Selecti from "./components/Select"
 
 function App() {
   return (

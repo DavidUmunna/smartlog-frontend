@@ -7,9 +7,8 @@ import { Button } from "../../components/Button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../../components/Card"
 import Input from "../../components/Input"
 import Label from "../../components/Label"
-import { Select, SelectItem } from "../../components/Select"
+import Select from "../../components/Select"
 import { AdminEmailInput } from "../../components/AdminEmailInput"
-import Selecti from "../../components/Selecti"
 
 function RegisterCompanyPage() {
   const [industry, setIndustry] = useState("")
@@ -53,7 +52,7 @@ function RegisterCompanyPage() {
 
             <div className="space-y-2">
               <Label htmlFor="industry" className="text-black">Industry</Label>
-              <Selecti id="industry" items={industries}/>
+              <Select id="industry" items={industries}/>
             </div>
 
             <div className="space-y-2">
@@ -61,7 +60,7 @@ function RegisterCompanyPage() {
               <Input id="employees" type="number" min="1" placeholder="Enter number of employees" required  className="border border-slate-300 mt-1 text-black"/>
             </div>
 
-            {/*<AdminEmailInput />*/}
+            <AdminEmailInput />
 
             <div className="pt-4">
               <Button type="submit" className="w-full">
