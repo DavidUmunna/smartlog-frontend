@@ -1,19 +1,67 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
+import { useEffect, useState } from "react"
 import Layout from "./components/Layout"
 import LandingPage from "./pages/LandingPage"
 import RegisterCompanyPage from "./pages/RegisterCompanyPage"
 import SignInPage from "./pages/SigninPage"
 import { RegisterPage } from "./pages/RegisterPage"
-
+import Dashboard from "./pages/Dashboard/index"
+import axios from "axios"
 
 function App() {
+  
+  const [auth, setauth]=useState(false)
+
+ const checkAuth = async () => {
+      try {
+
+        const token = localStorage.getItem("authToken");
+        const API = import.meta.env.VITE_APP_URL;
+        const response = await axios.get(`${API}/api/access`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+             
+          },
+          withCredentials: false, 
+        });
+    
+        setauth(response.data.authenticated);
+      } catch (error) {
+        setauth(false);
+        console.error("error :",error)
+      }
+    };
+  useEffect(()=>{
+    checkAuth()
+    const Timer =setInterval(()=>{
+      
+      checkAuth();
+    },15*60*1000)
+    return () => clearInterval(Timer)
+    
+
+  },[])
+  
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<LandingPage />} />
         <Route path="register-company" element={<RegisterCompanyPage />} />
-        <Route path="signin" element={<SignInPage />} />
+        <Route path="signin" element={<SignInPage setauth={setauth} /> } />
         <Route path="register" element={<RegisterPage />} />
+        <Route
+          path="dashboard"
+          element={
+            auth === null ? (
+              <div>Loading...</div>
+            ) : auth ? (
+              <Dashboard />
+            ) : (
+              <Navigate to="/signin" />
+            )
+          }
+        />
+
       </Route>
     </Routes>
   )
@@ -21,32 +69,3 @@ function App() {
 
 export default App;
 
-/*import Login from './components/login'
-import React from 'react'
-import { Route,Routes,useLocation} from 'react-router-dom'
-import './App.css'
-import { useState } from 'react'
-
-function App() {
-  const location=useLocation()
-  const [auth, setauth]=useState(true)
-
-  React.useEffect(()=>{
-    setauth(true)
-
-  },[auth])
-
-  return (
-    <>
-      
-      <Routes location={location} key={location.pathname}>
-        <Route path='/' element={auth? <Login/>:<Login/> }></Route>
-      </Routes>
-      
-      
-      
-    </>
-  )
-}
-
-export default App*/
