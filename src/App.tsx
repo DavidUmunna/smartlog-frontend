@@ -7,6 +7,7 @@ import SignInPage from "./pages/SigninPage"
 import { RegisterPage } from "./pages/RegisterPage"
 import Dashboard from "./pages/Dashboard/index"
 import axios from "axios"
+import Adminlayout from "./pages/Dashboard/layout"
 
 function App() {
   
@@ -49,6 +50,9 @@ function App() {
         <Route path="register-company" element={<RegisterCompanyPage />} />
         <Route path="signin" element={<SignInPage setauth={setauth} /> } />
         <Route path="register" element={<RegisterPage />} />
+      </Route >
+      <Route path="admin" element={<Adminlayout/>}>
+
         <Route
           path="dashboard"
           element={
@@ -60,9 +64,10 @@ function App() {
               <Navigate to="/signin" />
             )
           }
-        />
-
+          />
       </Route>
+
+
     </Routes>
   )
 }
