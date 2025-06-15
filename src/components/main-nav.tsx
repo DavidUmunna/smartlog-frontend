@@ -11,17 +11,20 @@ export function MainNav({
   className,
   ...props
 }: React.ComponentProps<"nav"> & {
-  items: { href: string; label: string }[]
+  items: { to: string; label: string }[]
 }) {
   const pathname = usePathname()
-
+  interface item{
+    to:string,
+    label:string
+  }
   return (
     <nav className={cn("items-center gap-0.5", className)} {...props}>
-      {items.map((item) => (
-        <Button key={item.href} variant="ghost" asChild size="sm">
+      {items.map((item)=> (
+        <Button key={item.to} variant="ghost" asChild size="sm">
           <Link
-            to={item.href}
-            className={cn(pathname === item.href && "text-primary")}
+            to={item.to}
+            className={cn(pathname === item.to && "text-primary")}
           >
             {item.label}
           </Link>

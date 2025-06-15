@@ -7,7 +7,8 @@ import SignInPage from "./pages/SigninPage"
 import { RegisterPage } from "./pages/RegisterPage"
 import Dashboard from "./pages/Dashboard/index"
 import axios from "axios"
-import Adminlayout from "./pages/Dashboard/layout"
+import Adminlayout from "./components/Adminlayout"
+import Attendance from "./pages/Attendancelogs/index"
 
 function App() {
   
@@ -56,15 +57,21 @@ function App() {
         <Route
           path="dashboard"
           element={
-            auth === null ? (
-              <div>Loading...</div>
-            ) : auth ? (
+             auth ? (
               <Dashboard />
             ) : (
               <Navigate to="/signin" />
             )
           }
           />
+        <Route
+          path="attendance"
+          element={auth? (
+            <Attendance/>
+          ):(
+            <Navigate to="/signin"/>
+          )
+        }/>
       </Route>
 
 

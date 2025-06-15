@@ -61,7 +61,7 @@ const SignInPage: React.FC<Props>=({setauth}) =>{
         localStorage.setItem("authToken",response.data.token)
         dispatch(setUser(response.data.user))
         setauth(true)
-        navigate("/admin")
+        navigate("/admin/dashboard")
       }
 
     }catch(error:unknown){

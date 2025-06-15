@@ -1,23 +1,35 @@
 
-import { Analytics } from '../../components/analytics';
-import { MainNav } from '../../components/main-nav';
-
+import { CardsActivityGoal } from '../../components/cards/activity-goal';
+import { CardsStats } from '../../components/cards/stats';
 
 const Dashboad=()=>{
     return(
-        <>
-          <div className='bg-gray-200'>
-            
-            <div className='flex max-h-44 max-w-full border shadow-2xs text-black'>
-                <h1>Welcome to your Dashboad</h1>
-            </div>
-            <div  className=' mt-64max-h-44 max-w-full  border shadow-2xs text-black'>
-              <Analytics/>
-
-            </div>
-
+      
+         <div className="">
+          {/* Header */}
+          <div className="flex max-h-44 max-w-full  shadow-2xs text-black py-1">
+            <h1 className="ml-3 font-bold text-xl">Welcome to your Dashboard</h1>
           </div>
-        </>
+        
+          {/* Main Content */}
+          <div className="mt-5 max-h-44 max-w-full  shadow-2xs text-black p-4">
+            <div>
+
+            <CardsActivityGoal />
+            </div>
+            <div className='mt-5'>
+
+              <CardsStats />
+            </div>
+            <div className='mt-5'>
+
+              <CardsActivityGoal />
+            </div>
+            
+           
+          </div>
+        </div>
+
     )
 }
 
