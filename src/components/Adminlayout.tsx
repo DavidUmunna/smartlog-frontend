@@ -24,18 +24,18 @@ export default function AdminLayout() {
               children: [
                 {
                   $id: "1",
-                  name: "Getting Started",
+                  name: "Human Resources",
                   type: "folder",
                   children: [
-                    { $id: "1.1", name: "Intro", type: "page", url: "/#####" },
-                    { $id: "1.2", name: "Setup", type: "page", url: "/####" },
+                    { $id: "1.1", name: "Leave Management", type: "page", url: "/admin/leavemanagement" },
+                    { $id: "1.2", name: "Remote Work Management", type: "page", url: "/####" },
                   ],
                 },
               ],
             }}
           />
         </div>
-        <div className="w-full bg-gray-300 min-h-full">
+        <div className="w-full  bg-gray-300 min-h-full">
           <div className="w-4/5 mx-auto">
             <Outlet /> 
           </div>

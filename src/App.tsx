@@ -9,7 +9,7 @@ import Dashboard from "./pages/Dashboard/index"
 import axios from "axios"
 import Adminlayout from "./components/Adminlayout"
 import Attendance from "./pages/Attendancelogs/index"
-
+import LeaveManagementCard  from "./pages/LeaveManagement"
 function App() {
   
   const [auth, setauth]=useState(false)
@@ -68,6 +68,14 @@ function App() {
           path="attendance"
           element={auth? (
             <Attendance/>
+          ):(
+            <Navigate to="/signin"/>
+          )
+        }/>
+        <Route
+          path="leavemanagement"
+          element={auth? (
+            <LeaveManagementCard/>
           ):(
             <Navigate to="/signin"/>
           )

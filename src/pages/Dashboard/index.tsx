@@ -1,6 +1,6 @@
+import { DailyCheckInTracker} from '../../components/cards/checkins';
+import { CheckInHistory } from '../../components/cards/checkinsHistory';
 
-import { CardsActivityGoal } from '../../components/cards/activity-goal';
-import { CardsStats } from '../../components/cards/stats';
 
 const Dashboad=()=>{
     return(
@@ -12,20 +12,16 @@ const Dashboad=()=>{
           </div>
         
           {/* Main Content */}
-          <div className="mt-5 max-h-44 max-w-full  shadow-2xs text-black p-4">
-            <div>
+          <div className="mt-5  max-w-full flex gap-4 h-[750px]  shadow-2xs text-black p-4">
+            <div className='flex-1'>
 
-            <CardsActivityGoal />
+            <DailyCheckInTracker />
             </div>
-            <div className='mt-5'>
 
-              <CardsStats />
+            <div className='w-[300px]'>
+              <CheckInHistory/>
             </div>
-            <div className='mt-5'>
-
-              <CardsActivityGoal />
-            </div>
-            
+                   
            
           </div>
         </div>

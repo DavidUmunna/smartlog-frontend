@@ -17,6 +17,7 @@ import {
   SidebarProvider
 } from "./ui/sidebar"
 
+
 export function DocsSidebar({
   tree,
   ...props
@@ -41,7 +42,7 @@ export function DocsSidebar({
             <SidebarGroupContent>
               {item.type === "folder" && (
                 <SidebarMenu className="gap-0.5">
-                  {item.children.map((item) => {
+                  {item.children?.map((item) => {
                     return (
                       item.type === "page" && (
                         <SidebarMenuItem key={item.url}>
@@ -50,7 +51,7 @@ export function DocsSidebar({
                             isActive={item.url === pathname}
                             className="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
                           >
-                            <Link to={item.url}>{item.name}</Link>
+                            <Link to={item.url ?? "#"}>{item.name}</Link>
                           </SidebarMenuButton>
                         </SidebarMenuItem>
                       )
